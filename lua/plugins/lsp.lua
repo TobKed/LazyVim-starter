@@ -1,0 +1,83 @@
+-- lua/plugins/lsp.lua
+return {}
+-- return {
+--   {
+--     "neovim/nvim-lspconfig",
+--     opts = function(_, opts)
+--       local util = require("lspconfig.util")
+--       opts.servers = opts.servers or {}
+--
+--       -- Resolve project root from common markers
+--       local root = util.root_pattern("pyproject.toml", "setup.cfg", "setup.py", "requirements.txt", ".git")(
+--         vim.fn.expand("%:p")
+--       ) or vim.loop.cwd()
+--
+--       local function exists(p)
+--         return vim.loop.fs_stat(p) ~= nil
+--       end
+--       local function join(...)
+--         return table.concat({ ... }, "/")
+--       end
+--
+--       -- Detect a venv (priority: $VIRTUAL_ENV -> ./venv -> ./.venv -> fallback)
+--       local function detect_python()
+--         local venv = vim.env.VIRTUAL_ENV
+--         if venv and venv ~= "" and exists(join(venv, "bin/python")) then
+--           return join(venv, "bin/python"), vim.fn.fnamemodify(venv, ":h"), vim.fn.fnamemodify(venv, ":t")
+--         end
+--         if exists(join(root, "venv", "bin/python")) then
+--           return join(root, "venv/bin/python"), root, "venv"
+--         end
+--         if exists(join(root, ".venv", "bin/python")) then
+--           return join(root, ".venv/bin/python"), root, ".venv"
+--         end
+--         return "python", nil, nil
+--       end
+--
+--       local py_bin, venv_path, venv_name = detect_python()
+--
+--       -- Detect common source roots dynamically
+--       local detected_srcs = {}
+--       for _, d in ipairs({ "server", "src", "app", "backend" }) do
+--         if exists(join(root, d)) then
+--           table.insert(detected_srcs, d)
+--         end
+--       end
+--
+--       opts.servers.pyright = vim.tbl_deep_extend("force", opts.servers.pyright or {}, {
+--         root_dir = function()
+--           return root
+--         end,
+--         settings = {
+--           python = {
+--             defaultInterpreterPath = py_bin,
+--             pythonPath = py_bin,
+--             venvPath = venv_path,
+--             venv = venv_name,
+--             analysis = {
+--               diagnosticMode = "workspace",
+--               autoSearchPaths = true,
+--               useLibraryCodeForTypes = true,
+--               exclude = {
+--                 "**/venv",
+--                 "**/.venv",
+--                 "**/__pycache__",
+--                 "**/.mypy_cache",
+--                 "**/build",
+--                 "**/dist",
+--               },
+--               extraPaths = (#detected_srcs > 0) and detected_srcs or nil,
+--
+--               -- 👇 Point 2: soften type checking
+--               typeCheckingMode = "basic", -- or "off" if you want no type checks
+--             },
+--           },
+--         },
+--       })
+--
+--       -- Optional: disable Ruff LSP (keep Black via Conform for formatting)
+--       opts.servers.ruff = false
+--       opts.servers.ruff_lsp = false
+--     end,
+--   },
+-- }
