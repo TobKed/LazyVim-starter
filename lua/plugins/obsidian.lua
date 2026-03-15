@@ -8,7 +8,8 @@ return {
     -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
     "BufReadPre "
       .. vim.fn.expand("~")
-      .. "/Dcouments/tobked/obisidian/fh/*.md",
+      .. "/~/code/NOTES",
+    "BufReadPre " .. vim.fn.expand("~") .. "/~/code/NOTION",
     -- refer to `:h file-pattern` for more examples
     -- "BufReadPre path/to/my-vault/*.md",
     -- "BufNewFile path/to/my-vault/*.md",
@@ -17,13 +18,13 @@ return {
   -- @type obsidian.config
   opts = {
     workspaces = {
-      -- {
-      --   name = "personal",
-      --   path = "~/vaults/personal",
-      -- },
       {
-        name = "work",
-        path = "~/Documents/tobked/obisidian/fh",
+        name = "NOTES",
+        path = "~/code/NOTES",
+      },
+      {
+        name = "NOTION",
+        path = "~/code/NOTION",
       },
     },
   },
