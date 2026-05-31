@@ -27,5 +27,23 @@ return {
         path = "~/code/NOTION",
       },
     },
+    -- UI settings for checkboxes
+    ui = {
+      enable = false, -- Disable obsidian.nvim UI to avoid conflicts with render-markdown.nvim
+      -- update_debounce = 200,
+      -- checkboxes = {
+      --   [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+      --   ["x"] = { char = "󰱒", hl_group = "ObsidianDone" },
+      --   [">"] = { char = "󰭹", hl_group = "ObsidianRightArrow" },
+      --   ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+      --   ["!"] = { char = "󰀦", hl_group = "ObsidianImportant" },
+      --   ["/"] = { char = "󰥔", hl_group = "ObsidianTodo" },
+      --   ["-"] = { char = "󰅙", hl_group = "ObsidianError" },
+      --   ["?"] = { char = "󰘥", hl_group = "ObsidianWarn" },
+      --   ["*"] = { char = "󰓎", hl_group = "ObsidianWarn" },
+      --   ["i"] = { char = "󰋽", hl_group = "ObsidianInfo" },
+      --   ["l"] = { char = "󰌶", hl_group = "ObsidianTodo" },
+      -- },
+    },
   },
 }
