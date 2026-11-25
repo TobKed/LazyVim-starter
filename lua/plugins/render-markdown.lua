@@ -5,7 +5,7 @@ return {
     preset = "obsidian",
     checkbox = {
       enabled = true,
-      position = "inline",
+      -- position = "inline",
       unchecked = { icon = "󰄱 " },
       checked = { icon = "󰱒 " },
       custom = {

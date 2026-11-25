@@ -9,7 +9,7 @@ return {
     "BufReadPre "
       .. vim.fn.expand("~")
       .. "/~/code/NOTES",
-    "BufReadPre " .. vim.fn.expand("~") .. "/~/code/NOTION",
+    "BufReadPre " .. vim.fn.expand("~") .. "/~/Dcouments/tobked/obisidian/fh/*.md",
     -- refer to `:h file-pattern` for more examples
     -- "BufReadPre path/to/my-vault/*.md",
     -- "BufNewFile path/to/my-vault/*.md",
@@ -19,13 +19,12 @@ return {
   opts = {
     workspaces = {
       {
-        name = "NOTES",
-        path = "~/code/NOTES",
+        name = "work",
+        path = "~/Documents/tobked/obisidian/fh",
       },
-      {
-        name = "NOTION",
-        path = "~/code/NOTION",
-      },
+    },
+    checkbox = {
+      order = { " ", "~", "!", ">", "x", "-" },
     },
     -- UI settings for checkboxes
     ui = {

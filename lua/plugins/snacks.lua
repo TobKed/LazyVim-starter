@@ -28,6 +28,10 @@ return {
           },
         },
       },
+      explorer = {
+        hidden = true,
+        ignored = true,
+      },
     },
   },
 }
